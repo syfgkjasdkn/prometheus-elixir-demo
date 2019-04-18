@@ -24,6 +24,10 @@ services:
     image: prom/node-exporter:v0.17.0
     ports:
       - 9100:9100
+  alertmanager:
+    image: prom/alertmanager:v0.16.2
+    ports:
+      - 9093:9093
 
 volumes:
   pgdata:
