@@ -1,4 +1,4 @@
-defmodule Metr.DataCase do
+defmodule Repo.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,17 @@ defmodule Metr.DataCase do
 
   using do
     quote do
-      alias Metr.Repo
-
       import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-      import Metr.DataCase
+      import Ecto.{Changeset, Query}
+      import Repo.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Metr.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Metr.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     end
 
     :ok

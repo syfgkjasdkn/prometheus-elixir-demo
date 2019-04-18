@@ -1,8 +1,8 @@
-defmodule MetrWeb.UserSocket do
+defmodule Web.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", MetrWeb.RoomChannel
+  # channel "room:*", Web.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

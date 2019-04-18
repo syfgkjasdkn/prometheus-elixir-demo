@@ -1,4 +1,4 @@
-defmodule MetrWeb.ConnCase do
+defmodule Web.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule MetrWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias MetrWeb.Router.Helpers, as: Routes
+      alias Web.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint MetrWeb.Endpoint
+      @endpoint Web.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Metr.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Metr.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

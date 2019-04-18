@@ -9,9 +9,9 @@ defmodule Metr.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      Metr.Repo,
+      Repo,
       # Start the endpoint when the application starts
-      MetrWeb.Endpoint
+      Web.Endpoint
       # Starts a worker by calling: Metr.Worker.start_link(arg)
       # {Metr.Worker, arg},
     ]
@@ -25,7 +25,7 @@ defmodule Metr.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    MetrWeb.Endpoint.config_change(changed, removed)
+    Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

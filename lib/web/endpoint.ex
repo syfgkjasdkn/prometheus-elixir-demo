@@ -1,7 +1,7 @@
-defmodule MetrWeb.Endpoint do
+defmodule Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :metr
 
-  socket "/socket", MetrWeb.UserSocket,
+  socket "/socket", Web.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -42,5 +42,5 @@ defmodule MetrWeb.Endpoint do
     key: "_metr_key",
     signing_salt: "oUlgINX8"
 
-  plug MetrWeb.Router
+  plug Web.Router
 end

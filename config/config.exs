@@ -8,13 +8,13 @@
 use Mix.Config
 
 config :metr,
-  ecto_repos: [Metr.Repo]
+  ecto_repos: [Repo]
 
 # Configures the endpoint
-config :metr, MetrWeb.Endpoint,
+config :metr, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "4DgbVkOlvGWc5B4ckP9jGWpG7dLf4kod7TmUDyEl8S2LSDQn5uFTgqrgsRYNkCBd",
-  render_errors: [view: MetrWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: Web.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Metr.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

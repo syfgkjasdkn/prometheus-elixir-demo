@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :metr, MetrWeb.Endpoint,
+config :metr, Web.Endpoint,
   http: [port: 4002],
   server: false
 
@@ -10,7 +10,7 @@ config :metr, MetrWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :metr, Metr.Repo,
+config :metr, Repo,
   username: "postgres",
   password: "postgres",
   database: "metr_test",
