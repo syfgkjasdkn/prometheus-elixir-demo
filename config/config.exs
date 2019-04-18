@@ -26,23 +26,11 @@ config :prometheus, Web.Instrumenter.Phoenix,
   duration_unit: :microseconds,
   duration_buckets: [
     10,
-    25,
-    50,
     100,
-    250,
-    500,
     1000,
-    2500,
-    5000,
     10_000,
-    25_000,
-    50_000,
     100_000,
-    250_000,
-    500_000,
     1_000_000,
-    2_500_000,
-    5_000_000,
     10_000_000
   ]
 
@@ -53,16 +41,11 @@ config :prometheus, Web.Instrumenter.Pipeline,
   duration_buckets: [
     10,
     100,
-    1_000,
+    1000,
     10_000,
     100_000,
-    300_000,
-    500_000,
-    750_000,
     1_000_000,
-    1_500_000,
-    2_000_000,
-    3_000_000
+    10_000_000
   ]
 
 # Configures Elixir's Logger
