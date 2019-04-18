@@ -45,7 +45,7 @@ defmodule Metr.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:prometheus, "~> 4.2"},
       {:prometheus_ex, "~> 3.0"},
-      {:prometheus_cowboy, "~> 0.1.7"},
+      # {:prometheus_cowboy, "~> 0.1.7"},
       {:prometheus_ecto, "~> 1.4"},
       {:prometheus_phoenix, "~> 1.2"},
       {:prometheus_plugs, "~> 1.1"},

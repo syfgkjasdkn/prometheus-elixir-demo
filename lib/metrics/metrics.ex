@@ -7,8 +7,6 @@ defmodule Metrics do
       Prometheus.Registry.register_collector(:prometheus_process_collector)
     end
 
-    Metrics.Plug.setup()
-
     Repo.Instrumenter.setup()
 
     :ok =
@@ -20,5 +18,8 @@ defmodule Metrics do
       )
 
     Web.Instrumenter.Phoenix.setup()
+    Web.Instrumenter.Pipeline.setup()
+
+    Metrics.Plug.setup()
   end
 end
