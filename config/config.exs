@@ -15,7 +15,55 @@ config :metr, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "4DgbVkOlvGWc5B4ckP9jGWpG7dLf4kod7TmUDyEl8S2LSDQn5uFTgqrgsRYNkCBd",
   render_errors: [view: Web.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Metr.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Metr.PubSub, adapter: Phoenix.PubSub.PG2],
+  instrumenters: [Web.Instrumenter.Phoenix]
+
+config :prometheus, Web.Instrumenter.Phoenix,
+  controller_call_labels: [:controller, :action],
+  # TODO https://github.com/deadtrickster/prometheus-phoenix/issues/11
+  channel_join_labels: [:channel, :topic, :transport],
+  registry: :default,
+  duration_unit: :microseconds,
+  duration_buckets: [
+    10,
+    25,
+    50,
+    100,
+    250,
+    500,
+    1000,
+    2500,
+    5000,
+    10_000,
+    25_000,
+    50_000,
+    100_000,
+    250_000,
+    500_000,
+    1_000_000,
+    2_500_000,
+    5_000_000,
+    10_000_000
+  ]
+
+config :prometheus, Web.Instrumenter.Pipeline,
+  labels: [:status_class, :method, :host, :scheme, :request_path],
+  registry: :default,
+  duration_unit: :microseconds,
+  duration_buckets: [
+    10,
+    100,
+    1_000,
+    10_000,
+    100_000,
+    300_000,
+    500_000,
+    750_000,
+    1_000_000,
+    1_500_000,
+    2_000_000,
+    3_000_000
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -5,6 +5,8 @@ defmodule Web.Endpoint do
     websocket: true,
     longpoll: false
 
+  plug Metrics.Plug
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest
@@ -41,6 +43,8 @@ defmodule Web.Endpoint do
     store: :cookie,
     key: "_metr_key",
     signing_salt: "oUlgINX8"
+
+  plug Web.Instrumenter.Pipeline
 
   plug Web.Router
 end

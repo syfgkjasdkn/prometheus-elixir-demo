@@ -42,7 +42,14 @@ defmodule Metr.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:prometheus, "~> 4.2"},
+      {:prometheus_ex, "~> 3.0"},
+      {:prometheus_cowboy, "~> 0.1.7"},
+      {:prometheus_ecto, "~> 1.4"},
+      {:prometheus_phoenix, "~> 1.2"},
+      {:prometheus_plugs, "~> 1.1"},
+      {:prometheus_process_collector, "~> 1.4"}
     ]
   end
 
