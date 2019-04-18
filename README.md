@@ -8,7 +8,7 @@ Setup:
 - Start postgres, prometheus, and some other services with `docker-compose up`
 - Start Phoenix endpoint and the corresponding app that are going to get scraped with `mix phx.server`
 
-Now you can visit [`localhost:9090`](http://localhost:9090) to interact with Prometheus.
+Now you can visit [`localhost:3000`](http://localhost:3000) to view Grafana's dashboard, and [`localhost:9090`](http://localhost:9090) to interact with Prometheus.
 
 ## Learn more
 

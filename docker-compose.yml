@@ -38,7 +38,17 @@ services:
   #   image: prom/alertmanager:v0.16.2
   #   ports:
   #     - 9093:9093
-
+  grafana:
+    image: grafana/grafana:6.1.4
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      # - ./grafana/:/etc/grafana
+      - grafanadata:/var/lib/grafana
 volumes:
   pgdata:
   promdata:
+  grafanadata:
