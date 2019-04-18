@@ -22,8 +22,3 @@ scrape_configs:
       - targets:
           # https://docs.docker.com/docker-for-mac/networking/
           - host.docker.internal:4000
-# TODO
-# add postgres exporter
-# add haproxy exporter
-# add consul exporter
-# add consul for service discovery
