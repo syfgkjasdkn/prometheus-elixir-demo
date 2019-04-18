@@ -11,6 +11,20 @@ services:
     restart: always
     ports:
       - 5432:5432
+  prometheus:
+    image: prom/prometheus:v2.9.1
+    volumes:
+      - promdata:/prometheus-data
+      - ./prometheus:/etc/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+  node-exporter:
+    image: prom/node-exporter:v0.17.0
+    ports:
+      - 9100:9100
 
 volumes:
   pgdata:
+  promdata:
