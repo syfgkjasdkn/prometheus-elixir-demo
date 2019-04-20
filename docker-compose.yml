@@ -30,6 +30,9 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
+  # node exporter won't show anything interesting since it
+  # runs in a container, but still, purely as an example ...
+  # it's ok
   node-exporter:
     image: prom/node-exporter:v0.17.0
     ports:
