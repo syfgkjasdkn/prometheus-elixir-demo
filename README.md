@@ -13,3 +13,11 @@ Now you can visit [`localhost:3000`](http://localhost:3000) to view Grafana's da
 ## Learn more
 
 - Official website: https://prometheus.io
+
+## Notes
+
+### How to achieve dynamic configs in a distributed env?
+
+- One hack-y way would be to have a cronjob on the prometheus instance which requests the [json file config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config) from the elixir app, which keeps it in some CRDT-like datastructure (e.g. https://hex.pm/packages/delta_crdt) or in a centralized database (e.g. postgres)
+
+- Consul with [consul_sd](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#consul_sd_config)
