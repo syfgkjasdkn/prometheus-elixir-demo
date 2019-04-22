@@ -1,0 +1,8 @@
+route:
+  receiver: telegram-fallback-pager
+  group_by: [job, alertname]
+receivers:
+  - name: telegram-fallback-pager
+    webhook_configs:
+      - send_resolved: True
+        url: http://prometheus_bot:9087/alert/-YOUR CHAT ID

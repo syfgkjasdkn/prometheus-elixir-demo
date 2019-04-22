@@ -30,9 +30,7 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
-  # node exporter won't show anything interesting since it
-  # runs in a container, but still, purely as an example ...
-  # it's ok
+  # NOTE: https://github.com/prometheus/node_exporter#using-docker
   node-exporter:
     image: prom/node-exporter:v0.17.0
     ports:
@@ -41,6 +39,16 @@ services:
   #   image: prom/alertmanager:v0.16.2
   #   ports:
   #     - 9093:9093
+  #   volumes:
+  #     - ./alertmanager:/etc/alertmanager
+  #     - alertmanagerdata:/alertmanager
+  # prometheus_bot:
+  #   build: prometheus_bot
+  #   ports:
+  #     - 9087:9087
+  #   volumes:
+  #     - ./prometheus_bot:/config
+  #   command: ["-c", "/config/config.yml"]
   grafana:
     image: grafana/grafana:6.1.4
     ports:
@@ -49,9 +57,9 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
     volumes:
-      # - ./grafana/:/etc/grafana
       - grafanadata:/var/lib/grafana
 volumes:
   pgdata:
   promdata:
   grafanadata:
+  alertmanagerdata:
